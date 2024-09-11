@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" class="display">
+<head class="display">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../main.css">
+    <link rel="stylesheet" href="../../../../fontawesome/css/all.min.css">
+    <meta name="theme-color" content="0288d1">
+    <title>Watch on Starlight</title>
+    <link rel="icon" type="image/x-icon" href="../../Icon/logo.ico">
+    <meta name="robots" content="noindex">
+</head>
+<body>
+    <nav>
+        <a href="../../index.html" class="nav-link"> <img src="../../resources/Pics/home.svg" width="30px" alt="Home"> </a>
+        <a href="../../About.html" class="nav-link">About</a>
+        <a href="../../Videos.html" class="nav-link">Videos</a>
+        <a href="../../Music.html" class="nav-link">Music</a>
+        <a href="../../Photos.html" class="nav-link">Photos</a>
+        <a href="../../Starlight.html" class="nav-link" id="exit">Sign-out</a>
+    </nav>
+    <h1><a href="../../index.html">
+        <img src="../../Icon/logo.svg" width="200px" alt="STARLIGHT"></a></h1>
+    <h1 id="title">Stream free videos and songs</h1>
+
+    <div style="display: flex; align-items: center; justify-content: center; max-width: fit-content;">
+        <video src="" onkeypress="play" controls>Please select an episode below or press next.</video>
+        <p id="vidNote">Please select an episode below or press next.</p>
+    </div>
+
+    <a href="#top"><i class="fa-solid fa-arrow-alt-circle-up upArrow"></i></a>
+
+    <div style="display: flex; max-width: 800px;">
+        <button id="btnPrev" class="playerCtrl"><img src="../Pics/play button.svg" width="30px" alt=""> Previous</button>
+        <button id="btnNext" class="playerCtrl">Next <img src="../Pics/play button2.svg" width="30px" alt=""></button>
+    </div>
+
+    <div>
+        <h2 class="pHeader">Episodes</h2>
+        <p class="playlist">
+            <a id="1">Episode 1</a>
+            <a id="2">Episode 2</a>
+            <a id="3">Episode 3</a>
+            <a id="4">Episode 4</a>
+            <a id="5">Episode 5</a>
+            <a id="6">Episode 6</a>
+            <a id="7">Episode 7</a>
+            <a id="8">Episode 8</a>
+            <a id="9">Episode 9</a>
+            <a id="10">Episode 10</a>
+            <a id="11">Episode 11</a>
+            <a id="12">Episode 12</a>            
+        </p>
+    </div>
+    
+    <div style="display: flex; padding: 20px 0;">
+        <a id="btn03" class="btnlnk" href="../../index.html">Back to Home</a>
+        <a id="btn04" class="btnlnk" href="../../Videos.html">Back to videos List</a>
+    </div>
+
+    <footer>
+        <div id="footer">
+            <div>
+                <span>
+                    Copyright Starlight.com 2023.
+                </span>
+            </div>
+            <div>
+                Contact Us:
+                <a class="ulink" href="mailto:adriantony247@gmail.com"><img src="../Pics/msg-icon.png" width="20px" alt=""> adriantony247@gmail.com</a>
+                <a class="ulink" href="tel:+2347015674616"><img src="../Pics/call-icon.png" width="20px" alt=""> +2347015674616</a>
+            </div>
+    
+            <div style="width: 300px; display: flex;">
+                <img src="../../Icon/logo.svg" width="100px" alt="STARLIGHT">
+                <img src="../Pics/Me logo.png" width="100px" style="padding-top: 10px;">
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let content = localStorage.getItem("ClickedSeason");
+        console.log(content);
+
+        body = document.querySelector("body");
+        let syntax =  document.createElement("script");
+        syntax.setAttribute("src", `${content}.js`);
+        body.appendChild(syntax);
+    </script>
+</body>
+</html>

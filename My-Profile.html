@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="../../fontawesome/css/all.min.css">
+    <meta name="theme-color" content="0288d1">
+    <title>Starlight Profile Page</title>
+    <link rel="icon" type="image/x-icon" href="Icon/logo.ico">
+    <meta name="robots" content="noindex">
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="nav-link" title="Homepage"> <img src="resources/Pics/home.svg" width="30px" alt="Home"> </a>
+        <a href="About.html" class="nav-link">About</a>
+        <a href="Videos.html" class="nav-link">Videos</a>
+        <a href="Music.html" class="nav-link">Music</a>
+        <a href="Photos.html" class="nav-link">Photos</a>
+        <a href="Starlight.html" class="nav-link" id="exit">Sign-out</a>
+    </nav>
+    <h1><a href="index.html">
+        <img src="Icon/logo.svg" width="200px" alt="STARLIGHT"></a></h1>
+    <h2 id="greeting">Your Profile</h2>
+
+    <div id="userDisplay">
+        <img class="avatar" id="UserAvatar" title="Your Avatar" src="Icon/icons8-account-white.svg" width="300px" alt="">
+        <span class="userInfoSpan" id="usernameSpan">UserX</span>
+    </div>
+
+    <div>
+        <p>
+            Hello <span class="userInfoSpan" id="usernameSpan">UserX</span>, this is your profile page. <br>
+            Here you can view and edit your profile info, and choose an Avatar for your profile.
+        </p>
+    </div>
+
+    <section id="userInfoSection">
+        <span class="sectionHead">Your Info.........</span>
+        <div>
+            <div class="userHead">
+            <span class="userInfo">Username</span>  <span class="userInfoSpan" id="usernameSpan">UserX</span>
+            </div>
+
+            <button class="left-50 inputBtn" onclick="displayInput(0)">Edit Username</button>
+
+            <div class="userInfoInput">
+                <form action="user-update" method="post">
+                    <div> <button class="cancel" onclick="cancelInput(0)">Cancel</button>  <input type="text" name="username" class="usernameInput" placeholder="type here" required>  <button class="save">Save</button></div>
+                </form>
+
+                <span class="errorSpan centerAlign">Username too long. Please make it shorter</span>
+            </div>
+        </div>
+
+        <div>
+            <div class="userHead">
+                <span class="userInfo">Password</span>  <span class="userInfoSpan" id="verify">First Verify Old Password</span>
+                <button class="inputBtn" onclick="displayInput(1)">Edit Password</button>
+            </div>
+
+            <div class="userInfoInput">
+                <form action="user-update" onsubmit="return verify(userInput[1])" method="post">
+                    <div> <button class="cancel" formaction="cancelInput(1)" onclick="cancelInput(1)">Cancel</button>  <input type="password" name="password" class="usernameInput" placeholder="type here" required minlength="8">  <button class="save">Submit</button></div>
+                </form>
+
+                <span class="errorSpan centerAlign">Password Incorrect</span>
+            </div>
+        </div>
+
+        <div>
+            <div class="userHead">
+                <span class="userInfo">Email</span>  <span class="user" id="emailSpan">userx@mail.com</span>
+            </div>
+
+            <button class="left-50 inputBtn" onclick="displayInput(2)">Edit email</button>
+
+            <div class="userInfoInput">
+                <form action="user-update" method="post">
+                    <div> <button class="cancel" formmethod="cancelInput(2)" onclick="cancelInput(2)">Cancel</button>  <input type="email" name="email" class="usernameInput" placeholder="type here" required>  <button class="save">Save</button> </div>
+                </form>
+
+                <span class="errorSpan centerAlign">This email elready exists, use another.</span>
+            </div>
+        </div>
+    </section>
+    
+    <section id="avatarSection">
+        <div class="userHead">
+            <span class="sectionHead">Avatar...</span>   <img class="avatar" id="selectedAvatar" onclick="toggleAvatarSelection()" src="Icon/icons8-account-white.svg" width="150px" alt="">
+        </div>
+        <div >
+            <div>
+                <button onclick="selectAvatar()">Select new Avatar</button>
+            </div>
+
+            <div id="avatarSelection">
+                <div id="avatarSelector">
+                    <span id="closeIcon"><img src="resources/Pics/close icon.svg" onclick="cancelSelectAvatar()" alt="close (X)"></span>
+                    <img src="Icon/icons8-account-white.svg" class="avatar choiceAvatar" alt="">
+                </div>
+                <div id="avbtns"> <button class="cancel" onclick="cancelSelectAvatar()">Cancel</button>  <button class="save" form="avatarForm">Save</button> </div>
+                <form action="user-update" method="post" id="avatarForm">
+                    <input id="avatarInput" type="hidden" name="avatar" value="">
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <div>
+        <p class="centerAlign">
+            Note: If you don't click "save", the changes won't be saved.
+        </p>
+    </div>
+    <script>
+        //Local Variable Declaration
+        let user = localStorage.getItem("Current-Starlight-User");
+        let userStr = user.split(';'); 
+        let username = userStr[0];
+        let email = userStr[1];
+        let usernameSpans = document.querySelectorAll("#usernameSpan");
+        let userEmailSpans = document.querySelectorAll("#emailSpan");
+        let userInfoInputs = document.querySelectorAll(".userInfoInput");
+        let inputBtns = document.getElementsByClassName("inputBtn");
+        let verifySpan = document.querySelector("#verify");
+        let avatarSelection = document.querySelector("#avatarSelection");
+        let userInput = document.querySelectorAll(".usernameInput");
+        let errorSpan = document.querySelectorAll(".errorSpan");
+
+
+        let AvatarList = ["3DMinato.svg","Android.svg","Anime Girl.svg","Blue bird.svg","blue cat.svg","Blue-eyed.svg","Cat-sketch.svg","Coffee cup.svg","dabbing Marshmellow.svg","Goku-neon.svg","GreenX.svg","Grand san.svg","Guitar.svg","Heart.svg","Incognito.svg","Iron man.svg","Kakashi.svg","Kaneki.svg","laptop avatar.svg","Las gidi.svg","Legs.svg","lips.svg","Nebular.svg","rocket.svg","Rocket-edit.svg","Sharingan.svg","Smiley.svg","Soul land.svg","Zodiac Circle.svg"];
+        let selectedAvatar = document.getElementById("selectedAvatar");
+        let avatarInput = document.getElementById("avatarInput");
+        let choiceAvt = document.querySelector(".choiceAvatar");
+
+        //Initializations:
+
+        //Avatar selection list
+        AvatarList.forEach(avatar => {
+            let avtImg = document.createElement("img");
+            avtImg.setAttribute("src", "resources/Pics/Avatars/" +avatar);
+            avtImg.setAttribute("class", "avatar");
+            avtImg.setAttribute("title", avatar.split(".")[0]);
+            avtImg.onclick = function(){
+                selectedAvatar.setAttribute("src", "resources/Pics/Avatars/"+avatar);
+                choiceAvt.classList.toggle("choiceAvatar");
+                avtImg.classList.toggle("choiceAvatar");
+                // avatarSelection.style.display = "none";
+                choiceAvt = document.querySelector(".choiceAvatar");
+                avatarInput.value = avtImg.title;
+            }
+            
+            document.querySelector("#avatarSelector").appendChild(avtImg);
+        });
+        // var avtImgs =  document.querySelector("#avatarSelector .avatar");
+        // avtImgs.forEach(img => {
+        //     var src = img.src;
+        //     img.onclick = avatarChosen(src);
+        // });
+        usernameSpans.forEach(usernameSpan => {
+            usernameSpan.textContent = username;
+        });
+        userEmailSpans.forEach(userEmailSpan => {
+            userEmailSpan.textContent = email;
+        });
+        userInfoInputs.forEach(userInfoInput => {
+            userInfoInput.style.display = "none";
+        });
+        
+
+              //Functions:
+
+        //Inputs
+        function displayInput(number) {
+            userInfoInputs[number].style.display = "initial";
+            inputBtns[number].style.display= "none";
+            if (number ==1) {
+                verifySpan.style.display= "initial";
+            }
+        }
+        function cancelInput(number) {
+            userInput[number].value = null;
+            userInfoInputs[number].style.display = "none";
+            inputBtns[number].style.display= "initial";
+            if (number ==1) {
+                verifySpan.style.display= "none";
+            }
+        }
+        //form
+        function verify(password){
+            if (verifySpan.textContent == "First Verify Old Password") {
+                let input =  password.value;
+                const xhr = new XMLHttpRequest();
+                    //xhr.onreadystatechange = function (){ 
+                xhr.onload = function () {
+                    if (xhr.readyState ===4 && xhr.status ===200) 
+                    {
+                        let response =this.responseText;
+                        if (response == "Enter new Password") {
+                            verifySpan.textContent =response;
+                            errorSpan[1].style.display = "none";
+                        }
+                        else
+                        {errorSpan[1].style.display = "initial"};
+                    }
+                };
+                xhr.open("POST", "verify-password");
+                xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhr.send("oldPassword=" +input);
+                password.value = null;
+                return false;
+            } 
+            else {
+                return true;
+            }
+        };
+    
+        
+        //Avatar Selection 
+        let count = 0;
+        function toggleAvatarSelection() { 
+            if (avatarSelection.style.display == "none") {
+                selectAvatar();
+            } else {
+                cancelSelectAvatar();
+            }
+            count++;
+        }
+        function selectAvatar() { 
+            avatarSelection.style.display = "initial";
+        }
+        function cancelSelectAvatar() { 
+            avatarSelection.style.display = "none";
+        }
+    </script>
+
+    <footer>
+        <div id="footer">
+            <div>
+                <span>
+                    Copyright Starlight.com 2023.
+                </span>
+            </div>
+            <div>
+                Contact Us:
+                <a class="ulink" href="mailto:adriantony247@gmail.com"><img src="resources/Pics/msg-icon.png" width="20px" alt=""> adriantony247@gmail.com</a>
+                <a class="ulink" href="tel:+2347015674616"><img src="resources/Pics/call-icon.png" width="20px" alt=""> +2347015674616</a>
+            </div>
+    
+            <div style="width: 300px; display: flex;">
+                <img src="Icon/logo.svg" width="100px" alt="STARLIGHT">
+                <img src="resources/Pics/Me logo.png" width="100px" style="padding-top: 10px;">
+    
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

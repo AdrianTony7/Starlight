@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <meta name="theme-color" content="0288d1">
+    <title>Videos - Starlight</title>
+    <link rel="icon" type="image/x-icon" href="Icon/logo.ico">
+    <meta name="robots" content="noindex">
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="nav-link"> <img src="resources/Pics/home.svg" width="30px" alt="Home"> </a>
+        <a href="About.html" class="nav-link">About</a>
+        <a href="Videos.html" class="nav-link">Videos</a>
+        <a href="Music.html" class="nav-link">Music</a>
+        <a href="Photos.html" class="nav-link">Photos</a>
+        <a href="Starlight.html" class="nav-link" id="exit">Sign-out</a>
+    </nav>
+    <h1><a href="index.html">
+        <img src="Icon/logo.svg" width="200px" alt="STARLIGHT"></a></h1>
+    <h1>Videos List</h1>
+    
+    <div>
+        <ul>
+            <h3>Movies</h3>
+            <li><a href="resources/0Videos/videoTemplate.html" class="list ulink">Accident Man Hitman's Holiday (2022)</a></li>
+            <li><a href="resources/0Videos/videoTemplate.html" class="list ulink">Detective Knight Redemption (2022)</a></li>
+            <li><a href="resources/0Videos/videoTemplate.html" class="list ulink">Doctor Strange in the Multiverse of Madness (2022)</a></li>
+            <li><a href="resources/0Videos/videoTemplate.html" class="list ulink">G Storm (2021)</a></li>
+            <li><a href="resources/0Videos/videoTemplate.html" class="list ulink">Ip Man The Awakening (2022)</a></li>
+            <li><a href="resources/0Videos/videoTemplate.html" class="list ulink">John Wick Chapter 3.Parabellum (2019)</a></li>
+            <li><a href="resources/0Videos/videoTemplate.html" class="list ulink">Kill Plan (2021)</a></li>
+            <li><a href="resources/0Videos/videoTemplate.html" class="list ulink">Red Notice (2021)</a></li>
+            <li><a href="resources/0Videos/videoTemplate.html" class="list ulink">Samaritan (2022)</a></li>
+            <li><a href="resources/0Videos/videoTemplate.html" class="list ulink">Secret Society 2 Never Enough (2022)</a></li>
+            <li><a href="resources/0Videos/videoTemplate.html" class="list ulink">Section 8 (2022)</a></li>
+            <li><a href="resources/0Videos/videoTemplate.html" class="list ulink">Shang-Chi and the Legend of the Ten Rings (2021)</a></li>
+            <li><a href="resources/0Videos/videoTemplate.html" class="list ulink">Top Gun Maverick (2022)</a></li>
+
+            <h3>.  .  .  .  .</h3>
+        </ul>
+    </div>
+       
+    <div>
+        <ul>
+            <h3>Movie Series</h3>
+            <li><a href="resources/0Videos/seasonTemplate.html" class="lists ulink">Wednesday</a></li>
+            <li><a href="resources/0Videos/seasonTemplate.html" class="lists ulink">House of Dragons</a></li>
+            <h3>.  .  .  .  .</h3>
+        </ul>
+    </div>
+
+    <div>
+        <ul>
+            <h3>Cartoons and Animations</h3>
+            <li><a href="resources/0Videos/videoTemplate.html" class="list ulink">Hotel Transylvania Transformania (2022)</a></li>
+            <h3>.  .  .  .  .</h3>
+        </ul>
+    </div>
+
+    <div>
+        <ul>
+            <h3>Animated Series</h3>
+            <li><a href="resources/0Videos/seasonTemplate.html" class="lists ulink">Blue Lock</a></li>
+            <li><a href="resources/0Videos/seasonTemplate.html" class="lists ulink">Classroom of the Elite</a></li>
+            <li><a href="resources/0Videos/seasonTemplate.html" class="lists ulink">Darker Than Black</a></li>
+            <li><a href="resources/0Videos/seasonTemplate.html" class="lists ulink">Devil's Line</a></li>
+            <li><a href="resources/0Videos/seasonTemplate.html" class="lists ulink">Eminence in the Shadow</a></li>
+            <li><a href="resources/0Videos/seasonTemplate.html" class="lists ulink">Log Horizon</a></li>
+            <li><a href="resources/0Videos/seasonTemplate.html" class="lists ulink">Love of  Kill</a></li>
+            <li><a href= "resources/0Videos/seasonTemplate.html" class="lists ulink">Muv-luv Alternative</a></li>
+            <li><a href= "resources/0Videos/seasonTemplate.html" class="lists ulink">Welcome to Demon School Iruma-kun</a></li>
+            <li><a href= "resources/0Videos/seasonTemplate.html" class="lists ulink">The genius Prince's Guide to Raising a Nation out of Debt</a></li>
+            <li><a href="resources/0Videos/test.html" class="lists ulink" id="index">index</a></li>
+            <h3>.  .  .  .  .</h3>
+        </ul>
+    </div>
+
+ 
+    <script>
+        let items = document.querySelectorAll(".lists");
+        let index = "";
+        items.forEach(item => {
+            item.onclick = function(){
+                index = item.textContent;
+                localStorage.setItem("ClickedSeason", index);
+            }
+        });
+
+        let item = document.querySelectorAll(".list");
+        item.forEach(item0 => {
+            item0.onclick = function(){
+                index = item0.textContent;
+                localStorage.setItem("ClickedVideo", index);
+            }
+        });
+    </script>
+    
+    <footer>
+        <div id="footer">
+            <div>
+                <span>
+                    Copyright Starlight.com 2023.
+                </span>
+            </div>
+            <div>
+                Contact Us:
+                <a class="ulink" href="mailto:adriantony247@gmail.com"><img src="resources/Pics/msg-icon.png" width="20px" alt=""> adriantony247@gmail.com</a>
+                <a class="ulink" href="tel:+2347015674616"><img src="resources/Pics/call-icon.png" width="20px" alt=""> +2347015674616</a>
+            </div>
+    
+            <div style="width: 300px; display: flex;">
+                <img src="Icon/logo.svg" width="100px" alt="STARLIGHT">
+                <img src="resources/Pics/Me logo.png" width="100px" style="padding-top: 10px;">
+    
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

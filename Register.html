@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <meta name="theme-color" content="0288d1">
+    <title>Sign-up Starlight</title>
+    <link rel="icon" type="image/x-icon" href="Icon/logo.ico">
+    <meta name="robots" content="noindex">
+</head>
+<body>
+<div id="formPage">
+    <h1><a href="">
+        <img src="Icon/logo.svg" width="200px" alt="STARLIGHT"></a></h1>
+    <h3>Create your account</h3> <br>
+
+<div id="form">
+    <form action="validation.html" method="checkForm()">
+        <div class="form-field">
+            <img src="Icon/icons8-account-48.svg" width="20px" alt="">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="  youremail@example.com" required>
+        </div>
+
+        <div class="form-field">
+            <label for="fullName">Name or Username</label>
+            <input type="text" id="fullName" placeholder="John Doe" required>
+            </div>
+
+        <div class="form-field">
+            <img src="Icon/icons8-password-key-48.svg" width="20px" alt="">
+            <label for="password">Password</label>
+            <input type="password" id="password" required minlength="8" placeholder="  at least 8 characters">           
+        </div>
+
+        <div class="form-field">
+            <img src="Icon/icons8-password-key-48.svg" width="20px" alt="">
+            <label for="password2">Retype your Password</label>
+            <input type="password" id="password2" required minlength="8">           
+        </div>
+
+        <div>
+            <input type="submit" id="submitBtn" onclick="checkForm()" value="Continue">
+        </div>
+
+        <div style="display: flex; align-items: center; align-content: space-around;">
+            <a href="Login.html" class="link" id="ssoLink">Already a user? Sign in</a>
+            <a href="Starlight.html" class="link" id="ssoLink">Back</a>
+        </div>
+
+    </form>
+</div>
+</div>
+    
+<script>
+    function checkForm() {
+        cookies = document.cookie;
+        let username = document.querySelector("#fullName").value;
+        let userEmail = document.querySelector("#email").value;
+        let userPassword = document.querySelector("#password").value;
+        let userPassword2 = document.querySelector("#password2").value;
+        
+        if (!(userPassword === userPassword2)){
+            alert("The Passwords must match.");
+            return;
+        }
+
+        let newKey = "Starlight.User: "+userEmail;
+        let newUser = `${username};${userEmail};${userPassword}`;
+
+        validation = checkUser(newKey, userPassword);
+        register(newKey, newUser, validation);
+    }
+
+    function checkUser(keyStr, userPassword) {
+        var key = localStorage.getItem(keyStr);
+        if (key != "" && key != null) {
+          var keys = key.split(';');
+            if (keys[2] == userPassword) {
+                return "validPassword";
+            }
+            return "true";
+        } 
+        else {
+            return "false";
+        }
+    }
+
+    function register(newKey, newUser, params) {
+        if (params == "false") {
+            localStorage.setItem(newKey, newUser);
+            alert(`User Registered. Proceed to Sign-in. \nDetails: ${newKey}, ${newUser}`);
+            localStorage.setItem("Current-Starlight-User", newUser);
+            localStorage.setItem("Current-Starlight-Action:", "Redirect");
+        }
+        if(params == "true" || params == "validPassword"){
+            alert(`This email has already been registered. \nTry Signing in or Use another email`);
+            localStorage.setItem("Current-Starlight-Action:", "Return");
+        }
+    }
+
+    function homepage() {
+        location.assign("index.html");
+    }
+</script>
+    <br>
+    <footer>
+        <div id="footer">
+            <div>
+                <span>
+                    Copyright Starlight.com 2023.
+                </span>
+            </div>
+            <div>
+                Contact Us:
+                <a class="ulink" href="mailto:adriantony247@gmail.com"><img src="resources/Pics/msg-icon.png" width="20px" alt=""> adriantony247@gmail.com</a>
+                <a class="ulink" href="tel:+2347015674616"><img src="resources/Pics/call-icon.png" width="20px" alt=""> +2347015674616</a>
+            </div>
+    
+            <div style="width: 300px; display: flex;">
+                <img src="Icon/logo.svg" width="100px" alt="STARLIGHT">
+                <img src="resources/Pics/Me logo.png" width="100px" style="padding-top: 10px;">
+    
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

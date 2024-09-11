@@ -1,0 +1,108 @@
+.message-section{
+    border-radius: 15px;
+    border: 1px whitesmoke solid;
+    padding: 10px;
+    max-width: 700px;
+}
+
+.message-block{
+    display: block;
+}
+
+.message-sender-icon{
+    margin-top: 3px;
+    margin-bottom: auto;
+    /* margin-bottom: calc(100%-33px); */
+}
+.message{
+    /* width: calc(98% - 26px); */
+    display: inline-block;
+    color: darkblue;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    padding-right: 20px;
+    width: fit-content;
+    max-width: calc(100% - 60px);
+    border-radius: 15px;
+    background-color: aliceblue;
+    border-top-left-radius: 0;
+}
+.message *{
+    color: darkblue;
+    overflow-wrap: break-word;
+}
+
+.message-sender{
+    font-weight: 600;
+    display: block;
+    margin-bottom: 3px;
+}
+
+.my-message-block{
+    display: flex;
+    justify-content: end;
+}
+.my-message-block .message-sender-icon, .my-message-block .message-sender{
+    display: none;
+}
+.my-message{
+    /* display: flex; */
+    margin: auto;
+    border-radius: 15px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    
+    background-color: aqua;
+    border-bottom-right-radius: 0;
+}
+.message-info{
+    position: relative;
+    left: 10px;
+    font-size: smaller;
+    font-weight: 500;
+    text-align: right;
+}
+
+.message-input{
+    margin: 10px;
+    display: block;
+    padding: 10px;
+    width: 96%;
+    height: 70px;
+    
+    border-radius: 10px;
+    background-color: rgba(0, 0, 128, 0.76);
+}
+.message-input-buttons{
+    display: flex;
+    
+    justify-content: right;
+    margin-right: 0%;
+}
+
+/* SMILEYS SECTION */
+#smileys-section{
+    max-width: 700px;
+    padding: 15px;
+    margin: 15px auto;
+    border-radius: 15px;
+    border: 2px aliceblue solid;
+}
+
+.smileys-picker{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.smiley{
+    width: 40px;
+    margin: 15px;
+}
+#smileys-close-button{
+    left: 90%;
+    position: relative;
+    color: red;
+    font-weight: bold;
+    font-size: large;
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" class="display">
+<head class="display">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../main.css">
+    <link rel="stylesheet" href="../../../../fontawesome/css/all.min.css">
+    <meta name="theme-color" content="0288d1">
+    <title>Watch on Starlight</title>
+    <link rel="icon" type="image/x-icon" href="../../Icon/logo.ico">
+    <meta name="robots" content="noindex">
+</head>
+<body>
+    <nav>
+        <a href="../../index.html" class="nav-link"> <img src="../../resources/Pics/home.svg" width="30px" alt="Home"> </a>
+        <a href="../../About.html" class="nav-link">About</a>
+        <a href="../../Videos.html" class="nav-link">Videos</a>
+        <a href="../../Music.html" class="nav-link">Music</a>
+        <a href="../../Photos.html" class="nav-link">Photos</a>
+        <a href="../../Starlight.html" class="nav-link" id="exit">Sign-out</a>
+    </nav>
+    <h1><a href="../../index.html">
+        <img src="../../Icon/logo.svg" width="200px" alt="STARLIGHT"></a></h1>
+    <h1 id="title">Stream free videos and songs</h1>
+
+    <div style="display: flex;">
+        <video src="" onkeypress="play" controls></video>
+    </div>
+
+    <!-- <div style="display: flex; max-width: 800px;">
+        <button id="btnPrev" class="playerCtrl"><img src="../Pics/play button.svg" width="30px" alt=""> Previous</button>
+        <button id="btnNext" class="playerCtrl">Next <img src="../Pics/play button2.svg" width="30px" alt=""></button>
+    </div>
+
+
+
+    <div>
+        <p class="playlist">
+            <a id="prev"></a>
+            <a id="next"></a>
+        </p>
+    </div> -->
+    
+    <div style="display: flex; padding: 20px 0;">
+        <a id="btn03" class="btnlnk" href="../../index.html">Back to Home</a>
+        <a id="btn04" class="btnlnk" href="../../Videos.html">Back to videos List</a>
+    </div>
+
+    <footer>
+        <div id="footer">
+            <div>
+                <span>
+                    Copyright Starlight.com 2023.
+                </span>
+            </div>
+            <div>
+                Contact Us:
+                <a class="ulink" href="mailto:adriantony247@gmail.com"><img src="../Pics/msg-icon.png" width="20px" alt=""> adriantony247@gmail.com</a>
+                <a class="ulink" href="tel:+2347015674616"><img src="../Pics/call-icon.png" width="20px" alt=""> +2347015674616</a>
+            </div>
+    
+            <div style="width: 300px; display: flex;">
+                <img src="../../Icon/logo.svg" width="100px" alt="STARLIGHT">
+                <img src="../Pics/Me logo.png" width="100px" style="padding-top: 10px;">
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let content = localStorage.getItem("ClickedVideo");
+        console.log(content);
+
+        let title = document.getElementById("title");
+        title.innerHTML = `${content}`;
+
+        let prevN = -1
+        let nextN = 1;
+        let vidN = nextN -1;
+        let path = `C:/Users/Stephen/Videos/`;
+        let suffixes = ["Accident Man Hitman's Holiday (2022) (NetNaija.com).mkv", "Detective Knight Redemption (2022) (NetNaija.com).mkv", "Doctor Strange in the Multiverse of Madness (2022) (NetNaija.com).mp4", "G Storm (2021) (NetNaija.com).mp4", "Ip Man The Awakening (2022) (NetNaija.com).mp4", "John.Wick.Chapter.3.Parabellum.(NKIRI.COM).2019.BluRay.DOWNLOADED.FROM.NKIRI.COM.mkv", "Kill Plan (2021) (NetNaija.com).mp4", "Red Notice (2021) (NetNaija.com).mp4", "Samaritan (2022) (NetNaija.com).mp4", "Secret Society 2 Never Enough (2022) (NetNaija.com).mp4", "Section 8 (2022) (NetNaija.com).mp4", "Shang-Chi and the Legend of the Ten Rings (2021) (NetNaija.com).mp4", "Top Gun Maverick (2022).720p.mkv", "Hotel Transylvania Transformania (2022) (NetNaija.com).mp4"];
+
+        const vid = document.querySelector("video");
+        const vidName = vid.getAttributeNames;
+        console.log(vidName);
+        let src = "";
+
+            suffixes.forEach(element => {
+                let count = element.indexOf(content);
+                if (count == 0 || count == 1) {
+                    src = path.concat(element);
+                    vid.src = src;
+                    // count = -1;
+                };
+            });
+            console.log(src);
+
+        // let prevV = document.querySelector(".playlist #prev");
+        // let nextV = document.querySelector(".playlist #next");
+
+        // title.textContent = `${content}`;
+        // for(let i = 0; i < suffixes.length; i++) {
+        //         let count = suffixes[i].match(content);
+        //         if(count= 1){ 
+        //             vid.setAttribute("src", path+suffixes[i]);
+
+        //             nextV.setAttribute("href", path+suffixes[i+1]);
+        //             let next= suffixes[i+1].split("(");
+        //             nextV.textContent= "Next Video: "+next[0];
+
+        //             prevV.setAttribute("href", path+suffixes[i -1]);
+        //             let prev= suffixes[i-1].split("(");
+        //             prevV.textContent= "Previous Video: "+prev[0];
+
+        //             break;
+        //         }
+
+        //     }
+
+        // body = document.querySelector("body");
+        // let syntax =  document.createElement("script");
+        // syntax.setAttribute("src", `${content}.js`);
+        // body.appendChild(syntax);
+    </script>
+</body>
+</html>

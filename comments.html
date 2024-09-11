@@ -1,0 +1,85 @@
+<section id="commentsSection">
+    <div>
+        <h1 class="commentHeader"> Comments: </h1> 
+    </div>
+
+    <div class="comments">
+        <div id="userDisplay">
+            <img class="avatar" id="UserAvatar" src="../../Icon/icons8-account-white.svg" width="120px" alt="">
+            <span class="userInfoSpan usernameSpan" id="" title="@admin">Admin</span>
+        </div>
+        <div class="commentText">
+            <p> Drop your comments here, We'd like to know what you think. </p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="form-field" id="userCommentBox">
+        <form action="post-comment" method="post">
+            <label for="userComment">Your Comment:</label>
+            <textarea id="userComment" name="userComment" cols="30" rows="3" placeholder="Comments Here" required></textarea>
+            <input id="pageNameInput" type="hidden" name="pageName" value="Photos">
+                <button>Post Comment</button>
+        </form>
+    </div>
+</section>
+
+<script>
+    //Initializations
+    let user = localStorage.getItem("Current-Starlight-User");
+    let userStr = user.split(';'); 
+    let username = userStr[0];
+    let email = userStr[1];
+    let usernameSpans = document.querySelectorAll("#commentsSection .usernameSpan");
+    let pageName = document.querySelector("#pageNameInput");
+    let commentsSection = document.getElementById("commentsSection");
+    let userEmailSpans = document.querySelectorAll("#emailSpan");
+    let inputBtns = document.getElementsByClassName("inputBtn");
+    let commentHeader = document.querySelector(".commentHeader");
+        commentHeader.textContent = ` Comments on ` +content +":";
+
+    //Get media page name from other script variable
+    pageName.value = content;
+
+    var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					let reply = this.responseText;
+				}
+			};
+			xhttp.open("GET", "get-comments");
+			xhttp.send();
+
+    //Functions
+    function initialiseComments(params) {
+        
+        var avatar = document.createElement("img");
+        avatar.className = "avatar";
+        avatar.id = "UserAvatar";
+        avatar.src = "" +usAvatar;
+        avatar.width = 120;
+
+        var usernameSpan = document.createElement("span");
+        usernameSpan.classList = "userInfoSpan usernameSpan";
+        usernameSpan.title = "" +splitEmail;
+        
+        var userDisplay = document.createElement("div");
+        userDisplay.id = "userDisplay";
+        userDisplay.appendChild(avatar);
+        userDisplay.appendChild(usernameSpan);
+        
+
+        var commentText = document.createElement("div");
+        var commentP = document.createElement("p");
+        commentText.appendChild(commentP);
+        commentText.className = "commentText"
+
+
+        var comment = document.createElement("div");
+        comment.appendChild(userDisplay);
+        comment.appendChild(commentText);
+
+        commentsSection.appendChild(comment);
+    }
+</script>

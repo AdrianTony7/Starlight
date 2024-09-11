@@ -1,0 +1,599 @@
+/**** GENERAL STYLES **********************/
+*{
+    color: aliceblue;
+    margin: auto;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+html{
+    font-family: 'Poppins', sans-serif;
+    background-color: rgb(5, 2, 27);
+    background-image: url(resources/background1.svg);
+    background-size: 100%;
+    scroll-behavior: smooth;
+}
+html.display{
+    background-image: url('resources/animated svgs/twilight-index.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    scroll-behavior: smooth;
+}
+
+body.display{
+    background-color: rgba(8, 5, 33, 0.90);
+    background-size: cover;
+    min-width: 460px;
+}
+body{
+    background-color: rgba(8, 5, 33, 0.826);
+    background-size: cover;
+    min-width: 460px;
+}
+
+a{
+    text-decoration-line: none;
+}
+a.ulink:hover, .ulink:hover{
+    text-decoration-line: underline;
+}
+
+p, ol, ul{
+    background-color: rgba(255, 255, 255, 0.05);
+    font-family: 'Bahnschrift Light';
+    font-size: 1.2rem;
+    padding: 30px 10px;
+    border-radius: 4px;
+    margin: auto;
+    max-width: 850px;
+}
+
+li{
+    margin-left: 20%;
+    margin-right: 10%;
+}
+
+h1, h2, h3{
+    text-align: center;
+    margin-bottom: 2%;
+}
+
+#btn01{
+    margin-left: 10%;
+    background-color: royalblue;
+}
+#btn02{
+    margin-right: 10%;
+    background-color: red;
+}
+
+.btnlnk{
+    font-size: 1.3rem;
+    border-radius: 5px;
+    background-color: rgba(0, 140, 255, 0.178);
+    padding: 5px 15px;
+}
+.btnlnk:hover{
+    background-color: rgba(0, 140, 255, 0.31);
+}
+
+
+/** NAV *********/
+nav {
+    display: flex;
+    padding: 20px 2px;
+    background-color: #000;
+    align-items:center;
+    align-content: space-between;
+    min-width: 350px;
+}
+
+a.nav-link{
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    border-bottom: 4px solid transparent;
+    padding: 5px;
+    transition: border-bottom .4s;
+    min-width: fit-content;
+}
+a.nav-link:hover{
+    border-bottom-color: skyblue;    
+}
+a#exit{
+    background-color: rgba(255, 0, 0, 0.742);
+    border-radius: 5px;
+}
+
+/** FORMS *********/
+#form{
+    border-radius: 10px;
+    max-width: 420px;
+    min-width: 380px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.073);
+    box-shadow: 0px 5px 15px  rgba(0, 0, 0, 0.35);
+    padding: 50px;
+}
+#formPage{
+    min-height: 100vh;
+}
+
+.form-field{
+    margin-bottom: 20px;
+}
+
+.form-field label{
+    font-size: 0.95rem;
+}
+.form-field img{
+    position: absolute;
+    margin-top: 40px;
+    margin-left: -25px;
+}
+
+#forgotPassword{
+    margin-left: 70px;
+}
+
+.form-field textarea,
+.form-field input[type="text"],
+.form-field input[type="email"],
+.form-field input[type="password"]{
+    display:block;
+    width: 100%;
+    height: 35px;
+    border-radius: 5px;
+    margin-top: 10px;
+    border: 1px solid #333;
+    color: black;
+}
+
+input[type="submit"]{
+    background-color: #5469d4;
+    color: #ffff;
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 20px;
+}
+
+.link{
+    color: #6a7fe5;
+}
+.link:hover{
+    text-decoration-line: underline;
+}
+
+#ssoLink{
+    padding: 5px;
+}
+
+/**** PROFILE PAGE & FORMS *****************/
+#userDisplay {
+    display: flex;
+    flex-direction: column;
+    margin: 3%;
+    font-size: 30px;
+    gap: 5px;
+}
+#UserAvatar {
+    border: 5px solid aliceblue;
+}
+
+#usernameSpan, .usernameSpan{
+    font-weight: bold;
+}
+
+section >div{
+    border-radius: 10px;
+    background-color: #ffffff08;
+}
+
+#userInfoSection, #avatarSection{
+    margin-top: 10%;
+    padding: 20px;
+}
+
+#userInfoSection >*:not(.sectionHead){
+    font-size: 1.4rem;
+    margin: 5%;
+    padding: 2%;
+}
+
+span.sectionHead{
+    font-weight: bold;
+    margin-left: 30%;
+    margin-bottom: 0%;
+    font-size: 1.6rem;
+}
+
+#userInfoSection .userHead{
+    margin: 30px auto;
+    display: flex;
+    gap: 5%;
+    justify-content: space-around;
+    width: 80%;
+}
+
+div.userInfoInput{
+    min-width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items:baseline;
+    justify-content:center ;
+    /* display: none; */
+}
+
+div.userInfoInput form{
+    width: 80%;
+    display: block;
+    margin: 30px auto;
+    justify-content: center;
+}
+
+div.userInfoInput form div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#verify{
+    display: none;
+}
+
+section button{
+    margin: auto 5px;
+    padding: 10px;
+    background-color: blue;
+    height: 40px;
+    min-width: 70px;
+    border: 0.5px solid;
+    border-radius: 7px;
+}
+button.left-50{
+    margin-left: 25%;
+}
+.inputBtn:not(.left-50){
+   margin: auto;
+}
+
+.userInfoInput .usernameInput{
+    margin-left: 5px;
+    margin-right: 5px;
+    min-width: 40%;
+    height: 40px;
+    border-radius: 1px;
+    border: 0px ;
+    border-bottom: 3px solid aliceblue;
+    /*
+    color: black; */
+    background-color: #ffffff00;
+}
+
+#avatarSection {
+    margin-bottom: 5%;
+}
+#avatarSection> div{
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+}
+#avatarSection> div.userHead{
+    flex-direction: row;
+    text-align: start;
+    justify-content: flex-start;
+    align-items:flex-start;
+}
+
+#selectedAvatar {
+    /* margin-top: 60px; */
+    border: 5px dotted aliceblue;
+    margin-left: 0%;
+}
+.choiceAvatar{
+    border: 5px solid yellowgreen;
+    box-shadow:  0px 5px 10px rgba(27, 40, 2, 0.721);
+}
+#avatarSelection{ 
+    width: 80%;   
+    display: none;
+}
+#avatarSelection #avbtns{
+    display: flex;
+    width: 70%;
+    gap: 20px;
+}
+#avatarSelection button{
+    margin: 30px auto;  
+}
+#avatarSelector {
+    border-radius: 20px;
+    padding: 5%;
+    padding-top: 10%;
+    background-color: palegoldenrod;
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+			
+
+.avatar {
+    border-radius: 50%;
+    background-color: #000;
+}
+#avatarSection .avatar{
+    width: 100px;
+    /* height: 100px; */
+}
+
+.cancel {
+    background-color: rgb(218, 0, 0);
+}
+.errorSpan {
+    display: block;
+    margin: 15px auto;
+    color: rgb(218, 0, 0);
+    display: none;
+}
+#closeIcon{
+    position: absolute;
+    width: 4%;
+    left: 75%;
+    min-width: 30px;
+    margin-top: -5%;
+}
+.centerAlign {
+    text-align: center;
+}
+
+/***** COMMENTS SECTION **********/
+#commentsSection{
+    margin-top: 5%;
+}
+#commentsSection .usernameSpan{
+    /* max-width: 800px; */
+    margin-top: 0px;
+}
+div.comments{
+    display: flex;
+}
+.comments #userDisplay{
+    font-size: 1.4rem;
+    max-width: 300px;
+    /* overflow: hidden; */
+}
+div.commentText{
+    margin-left: 10px;
+}
+#userCommentBox form{
+    font-size: 1.2rem;
+    width: 80%;
+    margin: 5% auto;
+    padding: 15px 1px;
+}
+#userCommentBox form textarea#userComment{
+    height: 80px;
+}
+
+#userCommentBox form button{
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    margin-right: 5%;
+}
+
+
+/** VIDEO ****************/
+video{
+    display: flex;
+    max-width: 750px;
+    min-width: 200px;
+}
+#vidNote{
+    position: absolute;
+    width: 300px;
+    text-align: center;
+    padding: 20px;
+}
+.upArrow{
+    margin-left: 40px;
+    /* right: 30px; */
+    font-size: 60px;
+    color: aliceblue;
+    position: fixed;
+    /* rgba(0, 140, 255, 0.178); */
+}
+.playerCtrl{
+    border-radius: 10px;
+    border: 0px;
+    padding: 10px;
+    font-size: 30px;
+    background-color: rgba(255, 255, 255, 0.103);
+    margin: 10px auto;
+}
+.playerCtrl:hover{
+    background-color: rgba(255, 255, 255, 0.32);
+}
+.pHeader{
+    background-color: rgba(255, 255, 255, 0.05);
+    font-family: 'Bahnschrift Light';
+    padding-top: 30px;
+    border-radius: 4px;
+    margin: auto;
+    margin-top: 60px;
+    max-width: 850px;
+}
+.playlist{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+.playlist a{
+    background-color:  rgba(255, 255, 255, 0.189);
+    border-radius: 5px;
+    padding: 10px;
+}
+.playlist a:hover{
+    background-color:  rgba(255, 255, 255, 0.1);
+}
+
+/*** MUSIC SPECIFICS *****/
+#albumList{
+    background-color: transparent;
+}
+.albumLI{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.05);
+    min-width: fit-content;
+    margin: 30px auto;
+    padding: 20px 10px;
+    border-radius: 15px;
+    gap: 10px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    transition: background-color .4s;
+}
+.albumLI span{
+    text-align: center;
+}
+.albumLI:hover{
+    background-color: rgba(255, 255, 255, 0.09);
+}
+#coverArt{
+    max-width: 250px;
+}
+
+/***** INDEX PAGE ******************/
+
+div.quickMenu .quickSeries, .quickMovie, .quickMusic{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-width: 251px;
+    transition: box-shadow .3s;
+}
+.quickSeries:hover, .quickMovie:hover, .quickMusic:hover{
+    box-shadow: 0px 0px 10px #929292e0;
+}
+.quickDetail{
+    position: absolute;
+    align-self: center;
+    width: 250px;
+    color: #00000000;
+    background-color: #00000000;
+    margin-top: 270px;
+    font-size: large;
+    padding: 15px;
+    height: 100px;
+    border-top-right-radius: 20px;
+    border-top-left-radius:  20px;
+}
+.quickDetail:hover{
+    transition: color .8s;
+    color: inherit;
+    background-color: #00000095;
+}
+.quickMenu .rating{
+    position: absolute;
+    background-color: rgba(188, 0, 0, 0.804);
+    border: rgb(57, 57, 57) 2px solid;
+    border-radius: 42%;
+    padding: 5px;
+    margin-left: 196px;
+}
+.quickMenu img{
+    height: 375px;
+    width: 250px;
+}
+.quickMenu p{
+    background-color: rgba(0, 111, 139, 0.726);
+    height: 80px;
+    width: 251px;
+    padding-top: 10px;
+    margin: 0 auto;
+}
+.quickMenu .quickYear{
+    order: 2;
+    padding: 0;
+    margin: 0;
+    height: fit-content;
+    text-align: center;
+    border-top-right-radius: 0;
+    border-top-left-radius:  0;
+}
+.quickMenu .quickYear:after{
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius:  0;
+}
+
+/*** FOOTER ***********************/
+footer{
+    margin-top: 4%;
+    background-image: url("resources/animated svgs/disk-index.svg");
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
+#footer{
+    font-size: 0.8rem;
+    display: flex;
+    padding: 30px 30px 60px 30px ;
+    flex-direction: column;
+    background-color: rgba(8, 5, 33, 0.7);
+}
+footer a{
+    padding: 10px;   
+    display: inline-block;
+}
+
+
+
+/********* MEDIA SPECIFICS ***********/
+  @media all and (min-width: 600px)
+{
+  video{
+        min-width: 500px;
+    }
+    #vidNote{
+        width: fit-content;
+    }
+}
+
+@media all and (max-width: 400px){
+    #closeIcon{
+        left: 100%;
+    }
+}
+
+@media all and (max-width: 600px)
+{
+    .upArrow{
+        top: 80%;
+    }
+}
+
+@media all and (max-width: 700px)
+{
+    #userInfoSection{
+        padding: 0;
+    }
+    #avatarSelector{
+        width: 100%;
+    }
+}
+
+@media all and (min-height: 1200px)
+{
+    /* *{
+        
+    }
+    img{
+    } */
+  video{
+        min-width: 640px;
+    }
+}

@@ -1,0 +1,45 @@
+*
+
+Form:
+sign in; Username, Password. 'use email instesd' 'already a user sign-in'
+sign up; Username, Name, email, Password, Repeat-Password,
+
+About:
+    Starlight is an eco friendly website designed for your entertainment.
+Here you can watch movies and cartoons, and listen to 'full albums of' music at your discression.
+
+Starlight is designed by AD.RIAN Studios.
+All media are supplied by AD.RIAN Studios.
+Web development is handled by Adrian Nsikanabasi Anthony Idung.
+
+
+
+Music: 
+
+
+Videos:
+
+
+Pics:
+
+Animpics:
+sea-of-clouds.svg
+speedline-index.svg
+squares-index.svg
+star-index.svg
+sunflower-index.svg
+tanglify-index.svg
+twilight-index.svg
+wave-index.svg
+wave.svg
+bars.svg
+bestagon-index
+bubbles-index.svg
+cloud-dark (1).svg
+clouds-index.svg
+field-index.svg
+interstellar.svg
+leave.svg
+lotus-index.svg
+ocean-index.svg
+photon-index.svg

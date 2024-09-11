@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <meta name="theme-color" content="0288d1">
+    <title>Login - Starlight</title>
+    <link rel="icon" type="image/x-icon" href="Icon/logo.ico">
+    <meta name="robots" content="noindex">
+</head>
+<body>
+<div id="formPage">
+        <h1><a href="">
+            <img src="Icon/logo.svg" width="200px" alt="STARLIGHT"></a></h1>
+        <h3>Sign in to your account</h3> <br>
+    
+    <div id="form">
+        <form action="validation.html" method="checkForm()">
+            <div class="form-field">
+                <img src="Icon/icons8-account-48.svg" width="20px" alt="">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="         youremail@example.com" required>
+            </div>
+            <div class="form-field">
+                <img src="Icon/icons8-password-key-48.svg" width="20px" alt="">
+                <label for="password">Password</label>
+                <a href="mailto:adriantony247@gmail.com" class="link" id="forgotPassword">Forgot your password?</a>
+                <input type="password" id="password" placeholder="        your password" required>           
+            </div>
+    
+            <div>
+                <input type="submit" id="submitBtn" onclick="checkForm()" value="Continue">
+            </div>
+    
+            <div style="display: flex; height: fit-content; align-items:center; justify-content: baseline; align-content: space-around;">
+                <a href="Register.html" class="link" id="ssoLink">New user? Sign up</a>
+                <a href="Starlight.html" class="link" id="ssoLink">Back</a>
+            </div>
+        </form>
+    </div>
+    </div>
+
+<script>
+    function checkForm() {
+        cookies = document.cookie;
+        let userEmail = document.querySelector("#email").value;
+        let userPassword = document.querySelector("#password").value;
+
+        let newKey = "Starlight.User: "+userEmail;
+
+        let validation = checkUser(newKey, userPassword);
+        login(validation, newKey);
+    }
+
+    function checkUser(keyStr, userPassword) {
+        var key = localStorage.getItem(keyStr);
+        if (key != "" && key != null) {
+           var keys = key.split(";");
+            if (keys[2] == userPassword) {
+                return "validPassword";
+            }
+            return "true";
+        } 
+        else {
+            return "false";
+        }
+    }
+
+    function login(params, key){
+        switch (params) {
+            case "validPassword":
+                alert(`Login Successful.`);
+                let newUser = localStorage.getItem(key);
+                localStorage.setItem("Current-Starlight-User", newUser);
+                localStorage.setItem("Current-Starlight-Action:", "Redirect");
+                return;
+
+            case "true":
+                alert("Username or Password Incorrect");
+                break;
+
+            default:
+                alert(`This email has not been registered. \nTry Signing up or Use a Registered email`);
+                break;
+        }
+        localStorage.setItem("Current-Starlight-Action:", "Return");
+    }
+</script>
+    
+    <br>
+    <footer>
+        <div id="footer">
+            <div>
+                <span>
+                    Copyright Starlight.com 2023.
+                </span>
+            </div>
+            <div>
+                Contact Us:
+                <a class="ulink" href="mailto:adriantony247@gmail.com"><img src="resources/Pics/msg-icon.png" width="20px" alt=""> adriantony247@gmail.com</a>
+                <a class="ulink" href="tel:+2347015674616"><img src="resources/Pics/call-icon.png" width="20px" alt=""> +2347015674616</a>
+            </div>
+    
+            <div style="width: 300px; display: flex;">
+                <img src="Icon/logo.svg" width="100px" alt="STARLIGHT">
+                <img src="resources/Pics/Me logo.png" width="100px" style="padding-top: 10px;">
+    
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
